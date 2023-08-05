@@ -39,7 +39,7 @@ export const loginValidation = async (
   const bodyKeys = Object.keys(req.body ?? {});
   const params = bodyKeys;
   if (checker(params, requiredParams)) {
-    if (!await findUser(req.body.email)) {
+    if (!(await findUser(req.body.email))) {
       return res.status(200).json({ message: "User not exist" });
     }
     next();

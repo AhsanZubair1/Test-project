@@ -6,7 +6,7 @@ export const createTask = async (req: Request, res: Response) => {
   try {
     const { name } = req.body;
     const task = AppDataSource.getRepository(Task);
-    const taskR = await task.save({name});
+    const taskR = await task.save({ name });
     return taskR;
   } catch (err) {
     console.error(err);

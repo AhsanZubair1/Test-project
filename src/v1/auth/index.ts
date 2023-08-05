@@ -15,11 +15,12 @@ authRoutes.forEach((route) => {
       try {
         if (result instanceof Promise) {
           result.then((val) => {
-            (val !== null && val !== undefined) && res.status(200).json({data:val});
+            val !== null &&
+              val !== undefined &&
+              res.status(200).json({ data: val });
           });
-        } 
-        else{
-          res.status(200).json({data:result})
+        } else {
+          res.status(200).json({ data: result });
         }
       } catch (err) {
         next(err);

@@ -1,6 +1,6 @@
 import { model } from "mongoose";
 import { DataSource } from "typeorm";
-import {secret} from "../../secrets";
+import { secret } from "../../secrets";
 import { Users } from "./models/users";
 import { Task } from "./models/task";
 import { db } from "../../secrets";
@@ -16,4 +16,4 @@ export const AppDataSource = new DataSource({
   entities: [Users, Task],
   subscribers: [],
   migrations: [],
-})
+});

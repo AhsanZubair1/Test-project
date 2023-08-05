@@ -1,6 +1,6 @@
 import express,{Request,response,Response, Router} from "express";
 import bodyParser from "body-parser";
-import secret from "./secrets";
+import {secret} from "./secrets";
 import authRouter from "./v1/auth";
 import { AppDataSource } from "./v1/db/dataSource";
 import taskRouter from "./v1/tesk";

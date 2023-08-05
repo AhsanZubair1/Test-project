@@ -1,10 +1,11 @@
 import dotenv from "dotenv";
+import { ConnectionOptions } from 'typeorm';
 dotenv.config();
-
+export type db = 'postgres'
 interface secrets {
   port: number;
   dbConfig: {
-    type: string | undefined;
+    type:  ConnectionOptions['type'];
     host: string| undefined;
     port: number| undefined;
     username: string| undefined;
@@ -13,10 +14,10 @@ interface secrets {
   };
   secret: string| undefined;
 }
-const secret: secrets = {
+export const secret: secrets = {
   port: parseInt(process.env.PORT!),
   dbConfig: {
-    type: process.env.DB_TYPE ,
+    type: process.env.DB_TYPE  as 'postgres',
     host: process.env.HOST,
     port: parseInt(process.env.DB_PORT!),
     username: process.env.DB_USER,
@@ -26,4 +27,3 @@ const secret: secrets = {
   secret: process.env.SECERT
 };
 
-export default secret;

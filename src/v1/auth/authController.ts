@@ -4,7 +4,7 @@ import { Users } from "../db/models/users";
 import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken';
 import { error } from "console";
-import secret from "../../secrets";
+import {secret} from "../../secrets";
 
 
 export const register = async (req: Request, res: Response) => {
@@ -46,7 +46,6 @@ export const login= async(req: Request, res:Response)=> {
     return error
   }
 }
-
 
 export const listUser = async (req: Request, res: Response) => {
   try {

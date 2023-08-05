@@ -46,6 +46,4 @@ export const loginValidation = async (
   } else {
     return res.status(200).json({ message: "Required parameters Missing" });
   }
-
-
 };

@@ -1,10 +1,11 @@
 import { Request,Response,NextFunction} from "express";
 import { checker,findUser } from "../auth/authMiddleware"
 import jwt from 'jsonwebtoken';
-import secret from "../../secrets";
+import {secret} from "../../secrets";
 
 export function verifyToken(req: Request, res: Response, next: NextFunction) {
   try {
+    console.log(req.header('Authorization'))
     const token = req.header('Authorization')?.replace('Bearer ', '');
     if (!token) {
       return res.status(401).json({ error: 'No token provided' });
